@@ -2,3 +2,5 @@
 
 
 .envrc
+.env.prod
+.env.prod.db
