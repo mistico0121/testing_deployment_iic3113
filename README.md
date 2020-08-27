@@ -148,3 +148,8 @@ Ej. Si tengo la mitad del puntaje en la parte mínima y el puntaje completo en l
 $E_0 = 6 *(0.5 * 0.5 + 0.25 * 1 + 0.25 * 1) + 1 = 5.5$
 
 *Cualquier error en el enunciado por favor reportenlo para analizarlo, via correo o slack*
+
+## Tutoriales usados
+
+https://pawamoy.github.io/posts/docker-compose-django-postgres-nginx/
+https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/

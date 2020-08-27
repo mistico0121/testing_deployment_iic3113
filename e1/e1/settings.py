@@ -19,6 +19,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 's36(n2o834j$^as#2rs=y0z1v1fn9#=&o(^$1y0c_##q$-g+hz'
 
@@ -75,8 +76,13 @@ WSGI_APPLICATION = 'e1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'database1',
+        'USER': 'database1_role',
+        'PASSWORD': 'database1_password',
+        'HOST': 'database1',  # <-- IMPORTANT: same name as docker-compose service!
+        'PORT': '5432',
+
     }
 }
 
