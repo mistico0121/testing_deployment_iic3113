@@ -25,5 +25,4 @@ COPY ./entrypoint.prod.sh .
 COPY . .
 
 # run entrypoint.sh
-RUN chmod +x /usr/src/app/entrypoint.prod.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
