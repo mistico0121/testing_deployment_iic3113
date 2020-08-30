@@ -33,4 +33,8 @@ def index(request):
     return render(request, "board.html", context)
 
 def thread_view(request, *args, **kwargs):
-    return render(request, "thread.html")
+    obj  = Thread.objects.get(id = 1)
+    context = {
+        'obj' : obj
+    }
+    return render(request, "thread.html",context)
