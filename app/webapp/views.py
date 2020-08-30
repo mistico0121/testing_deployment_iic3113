@@ -1,6 +1,9 @@
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
+from .models import *
+from .forms import *
 
 
 def image_upload(request):
@@ -14,3 +17,20 @@ def image_upload(request):
             "image_url": image_url
         })
     return render(request, "upload.html")
+
+def index(request):
+
+    threads = Thread.objects.all()
+    form = ThreadForm()
+
+    if request.method == 'POST':
+        form = ThreadForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    context = {'threads':threads, 'form': form}
+    return render(request, "board.html", context)
+
+def thread_view(request, *args, **kwargs):
+    return render(request, "thread.html")

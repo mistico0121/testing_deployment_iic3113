@@ -1,0 +1,13 @@
+<h3>TO DO AAAAAAAAAAAAAAAA</h3>
+
+<form method="POST" action = '/'>
+	{%csrf_token%}
+	{{form}}
+	<input type="submit" name="Create Thread">
+</form>
+
+{% for thread in threads %}
+	<div>
+		<p>{{thread}}</p>
+	</div>
+{% endfor %}
