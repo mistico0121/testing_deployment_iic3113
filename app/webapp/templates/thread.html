@@ -1,5 +1,23 @@
 
-<h1>thread example</h1>
+<h1>Thread {{obj.id}}</h1>
 
-<p>{% if obj.username %} {{ obj.username }} {% else %} Anonymous {% endif %}</p>
+<p>Username: {% if obj.username %} {{ obj.username }} {% else %} Anonymous {% endif %}</p>
 <h2>title: {{obj.title}}</h2>
+<h3>text: {{obj.text}}</h2>
+
+
+<h2>Posts in this thread</h2>
+<h3>Post Form:</h3>
+
+{% for post in posts %}
+	<div>
+		<p>Username : {{post.username}}</p>
+		<p>Text : {{post.text}}</p>
+	</div>
+{% endfor %}
+
+<form method="POST" action = '{{thread.get_absolute_url}}'>
+	{%csrf_token%}
+	{{form}}
+	<input type="submit" name="Create Post">
+</form>

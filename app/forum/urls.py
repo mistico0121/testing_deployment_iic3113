@@ -23,7 +23,7 @@ from webapp.views import image_upload, index, thread_view
 urlpatterns = [
     path("testupload", image_upload, name="upload"),
     path("admin/", admin.site.urls),
-    path("thread", thread_view),
+    path("thread/<int:my_id>/", thread_view),
     path('', index)
 ]
 

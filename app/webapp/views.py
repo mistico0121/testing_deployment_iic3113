@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from .models import *
@@ -32,9 +32,26 @@ def index(request):
     context = {'threads':threads, 'form': form}
     return render(request, "board.html", context)
 
-def thread_view(request, *args, **kwargs):
-    obj  = Thread.objects.get(id = 1)
+def thread_view(request, my_id):
+    obj  = get_object_or_404(Thread, id = my_id)
+    form = PostForm()
+    posts = Post.objects.filter(thread_id = my_id)
+    print("testeando print")
+    
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        print("acaaa")
+        if form.is_valid():
+            test = form.save(commit = False)
+            test.thread_id = my_id
+            test.save()
+
+        return redirect(f"{obj.get_absolute_url()}")
+
     context = {
-        'obj' : obj
+        'obj' : obj,
+        'form' : form,
+        'posts' : posts
     }
+
     return render(request, "thread.html",context)

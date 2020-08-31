@@ -1,4 +1,4 @@
-<h3>TO DO AAAAAAAAAAAAAAAA</h3>
+<h3>Board</h3>
 
 <form method="POST" action = '/'>
 	{%csrf_token%}
@@ -8,6 +8,6 @@
 
 {% for thread in threads %}
 	<div>
-		<a href = /thread/1><p>{{thread}}</p></a>
+		<a href = "{{thread.get_absolute_url}}"><p>{{thread}}</p></a>
 	</div>
 {% endfor %}

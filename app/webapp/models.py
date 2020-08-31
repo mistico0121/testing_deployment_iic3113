@@ -9,3 +9,12 @@ class Thread(models.Model):
 
 	def __str__(self):
 		return self.title
+
+	def get_absolute_url(self):
+		return f"/thread/{self.id}"
+
+class Post(models.Model):
+	text = models.TextField(blank = True, null = True)
+	username = models.CharField(max_length = 120)
+	createdAt = models.DateTimeField(auto_now_add = True)
+	thread_id = models.IntegerField()
