@@ -4,4 +4,6 @@
 .envrc
 .env.prod
 .env.dev
+.env.staging
 .env_db.prod
+.env_staging.proxy-companion
