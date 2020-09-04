@@ -1,13 +1,21 @@
-<h3>Board</h3>
+{% extends 'base.html' %}
 
-<form method="POST" action = '/'>
-	{%csrf_token%}
-	{{form}}
-	<input type="submit" name="Create Thread">
-</form>
+{% block content %}
+<div class = 'container'>
+	<h1>Board</h1>
 
-{% for thread in threads %}
-	<div>
-		<a href = "{{thread.get_absolute_url}}"><p>{{thread}}</p></a>
-	</div>
-{% endfor %}
+	<form method="POST" action = '/'>
+		{%csrf_token%}
+		{{form}}
+		<input type="submit" name="Create Thread">
+	</form>
+
+	{% for thread in threads %}
+		<div>
+			<a href = "{{thread.get_absolute_url}}"><p>{{thread}}</p></a>
+		</div>
+	{% endfor %}
+
+</div>
+{% endblock %}
+
