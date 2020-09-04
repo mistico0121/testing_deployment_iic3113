@@ -2,3 +2,6 @@
 
 
 .envrc
+.env.prod
+.env.dev
+.env_db.prod

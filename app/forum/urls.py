@@ -18,11 +18,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from webapp.views import image_upload
+from webapp.views import image_upload, index, thread_view
 
 urlpatterns = [
-    path("", image_upload, name="upload"),
+    path("testupload", image_upload, name="upload"),
     path("admin/", admin.site.urls),
+    path("thread/<int:my_id>/", thread_view),
+    path('', index)
 ]
 
 if bool(settings.DEBUG):

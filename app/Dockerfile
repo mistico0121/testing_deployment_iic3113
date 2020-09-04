@@ -12,6 +12,8 @@ ENV PYTHONUNBUFFERED 1
 # we use --system flag because we don't need an extra virtualenv
 RUN apt-get update && apt-get install -y netcat
 
+RUN mkdir staticfiles
+
 
 RUN pip install pipenv 
 COPY ./Pipfile /usr/src/app/Pipfile
