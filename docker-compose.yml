@@ -27,8 +27,8 @@ services:
     image: nginx:1.19.0-alpine
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d
       - static_volume:/usr/src/app/staticfiles
