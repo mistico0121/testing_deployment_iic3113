@@ -33,7 +33,7 @@ services:
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles
       - certbot-etc:/etc/letsencrypt
-      - .certbot-var:/var/www/certbot
+      - certbot-var:/var/www/certbot
     depends_on:
       - web
     networks:
