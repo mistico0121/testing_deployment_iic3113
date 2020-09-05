@@ -52,6 +52,8 @@ networks:
   app-network:
 
 volumes:
+  certbot-var:
+  certbot-etc:
   postgres_data:
   static_volume:
   media_volume:
