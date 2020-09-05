@@ -54,7 +54,7 @@ services:
 
 networks:
   nginx_network:
-    driver:bridge
+    driver: bridge
   database1_network:
     driver: bridge
 
