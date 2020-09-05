@@ -38,8 +38,8 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
 # For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
-#ALLOWED_HOSTS = ['testimageboard.tk','www.testimageboard.tk', '34.207.190.96']
+#ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ['testimageboard.tk','www.testimageboard.tk', '34.207.190.96']
 
 
 # Application definition
@@ -144,5 +144,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
-
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
