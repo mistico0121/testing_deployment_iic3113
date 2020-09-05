@@ -4,7 +4,7 @@ services:
   web:
     build: 
       context: ./app
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     command: gunicorn forum.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/usr/src/app/staticfiles
