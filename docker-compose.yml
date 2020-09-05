@@ -16,20 +16,15 @@ services:
     depends_on:
       - db
 
-    networks:
-      - nginx_network
-      - database1_network
   db:
     image: postgres:12.0
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env_db.prod
-    networks:
-      - database1_network
 
   nginx:
-    image: nginx:1.15-alpine
+    build: ./nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -41,8 +36,6 @@ services:
       - ./data/certbot/www:/var/www/certbot
     depends_on:
       - web
-    networks:
-      - nginx_network
 
   certbot:
     image: certbot/certbot
@@ -51,13 +44,6 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    network:
-      - nginx_network
-networks:
-  nginx_network:
-    driver: bridge
-  database1_network:
-    driver: bridge
 
 volumes:
   postgres_data:
