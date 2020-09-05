@@ -24,12 +24,13 @@ services:
       - ./.env_db.prod
 
   nginx:
-    build: ./nginx
+    image: nginx:1.19.0-alpine
     restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
     volumes:
+      - ./nginx.conf:/etc/nginx/conf.d
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles
       - ./data/certbot/conf:/etc/letsencrypt
