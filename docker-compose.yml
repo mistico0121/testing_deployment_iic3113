@@ -23,6 +23,8 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env_db.prod
+    networks:
+      - app-network
 
   nginx:
     image: nginx:mainline-alpine
