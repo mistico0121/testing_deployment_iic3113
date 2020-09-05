@@ -32,8 +32,8 @@ services:
       - ./nginx :/etc/nginx/conf.d
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/www/certbot
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
     depends_on:
       - web
     networks:
@@ -42,8 +42,8 @@ services:
   certbot:
     image: certbot/certbot
     volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/www/html
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/html
     depends_on:
       - nginx
     command: certonly ----webroot --webroot-path=/var/www/html --email mrschudeck@uc.cl --agree-tos --no-eff-email --staging -d testimageboard.tk  -d www.testimageboard.tk
@@ -52,8 +52,6 @@ networks:
   app-network:
 
 volumes:
-  certbot-var:
-  certbot-etc:
   postgres_data:
   static_volume:
   media_volume:
