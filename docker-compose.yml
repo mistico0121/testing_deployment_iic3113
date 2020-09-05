@@ -15,30 +15,42 @@ services:
       - ./.env.staging
     depends_on:
       - db
+    networks:
+      - app-network
   db:
     image: postgres:12.0
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env_db.prod
+
   nginx:
-    image: nginx
+    image: nginx:mainline-alpine
     ports:
       - "80:80"
-      - "443:443"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx :/etc/nginx/conf.d
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+      - certbot-etc:/etc/letsencrypt
+      - .certbot-var:/var/www/certbot
     depends_on:
       - web
+    networks:
+      - app-network
+
   certbot:
     image: certbot/certbot
     volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/www/html
+    depends_on:
+      - nginx
+    command: certonly ----webroot --webroot-path=/var/www/html --email mrschudeck@uc.cl --agree-tos --no-eff-email --staging -d testimageboard.tk  -d www.testimageboard.tk
+
+networks:
+  app-network:
+
 volumes:
   postgres_data:
   static_volume:
