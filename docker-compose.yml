@@ -46,7 +46,7 @@ services:
       - ./data/certbot/www:/var/www/html
     depends_on:
       - nginx
-    command: certonly --email mrschudeck@uc.cl --agree-tos --no-eff-email --staging -d testimageboard.tk  -d www.testimageboard.tk
+    command: certonly --webroot -w /var/www/certbot --email mrschudeck@uc.cl --agree-tos --no-eff-email --staging -d testimageboard.tk  -d www.testimageboard.tk
 
 networks:
   app-network:
