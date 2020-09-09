@@ -25,7 +25,7 @@ Cada usuario puede ingresar su username al momento de hacer un post o thread.
 
 #### RNF1
 
-La configuración del proxy inverso la pueden ver con los archivos docker-compose.yml y nginx/conf.d
+La configuración del proxy inverso la pueden ver con los archivos docker-compose.yml y nginx/nginx.conf
 
 #### RNF2
 
