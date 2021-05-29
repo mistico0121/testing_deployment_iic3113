@@ -4,7 +4,9 @@ Está hecho en Django, Gunicorn, Postgres con motor web nginx como el proxy inve
 
 ### Local
 
-Usar `sudo docker-compose -f docker-compose-dev.yml up -d` para levantar la app en un daemon thread en local. Ejecutar `sudo docker-compose exec web python manage.py migrate --noinput` para migrar la base de datos.
+Usar `sudo docker-compose -f docker-compose-dev.yml up --build -d` para levantar la app en un daemon thread en local. Ejecutar `sudo docker-compose exec web python manage.py migrate --noinput` para migrar la base de datos.
+
+Si ocurre un error, hacer `sudo docker-compose -f docker-compose-dev.yml down -v` para bajar la app y los volumenes, e intentar nuevamente
 
 Luego metan todo lo que necesiten a los templates de la app. Esta ya está arriba y funcionando, solo debiera bastar hacer git pull y migrar cuando agreguen sus views
 
