@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block  content %}
+<link rel="stylesheet" type="text/css" href="{% static 'stores/style.css' %}">
+
+<div class="container">
+
+  <div class="store-details">
+    <h1>{{ store.name }}</h1>
+    <p> {{ store.description }}</p>
+  </div>
+  <h1>Puntos de Venta</h1>
+
+  <div class="grid-stores">
+  {% for obj in point_of_sales %}
+      <div class="grid-item" onclick="location.href='{% url 'point_of_sale-show' obj.id %}'">
+        <div class="store-info">
+          <p>{{ obj.name }}</p>
+          <p>{{ obj.description }}</p>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}

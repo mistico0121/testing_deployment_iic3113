@@ -1,0 +1,35 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+  <title>Asistente Virtual</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'pages/style.css' %}">
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <ul>
+
+    <li><a href='/'>Inicio</a></li>
+    <li><a href='/stores'>Catalogo</a></li>
+    <li><a href='/videocalls'>Videollamadas</a></li>
+    <li><a href="{% url 'salesman-index' %}">Vendedor</a></li>
+    <li><a href="{% url 'surveys' %}">Encuestas</a></li>
+    {% if not request.user.is_authenticated %}
+      <li><a href='/accounts/login'>Iniciar Sesión</a></li>
+      <li><a href= "{% url 'signup' %}">Registrarse</a></li>
+    {% else %}
+      <li><a href= "{% url 'logout' %}">Cerrar Sesión</a></li>
+      <li><a href="{% url 'profile' %}">Perfil</a></li>
+    {%endif%}
+    
+  </ul>
+
+  {% block content %}
+
+  {% endblock content %}
+  
+</body>
+</html>

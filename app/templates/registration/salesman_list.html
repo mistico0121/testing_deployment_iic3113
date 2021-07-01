@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block  content %}
+<link rel="stylesheet" type="text/css" href="{% static 'devices/style.css' %}">
+
+<table>
+    <tr>
+      <th>id</th>
+      <th>username</th>
+      
+    </tr>
+    {% for salesman in salesmans %}
+      <tr>
+        <td>{{ salesman.user.id }}</td>
+        <td>{{ salesman.user.username }}</td>
+      </tr>
+    {% endfor %}
+
+</table>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block  content %}
+
+<div class="survey_background">
+    <div class="survey_text-hold">
+        <p2>
+            Encuestas
+        </p2>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item">
+            Calificación promedio calidad: {{ mean_quality_rating }}
+            <br>
+            Calificación promedio utilidad: {{ mean_usefullness_rating }}
+        </div>
+    </div>
+    <div class="grid-container">
+        {% for object in object_list %}
+            <div class="grid-item">
+                Calidad del video: {{ object.quality }}. NOTA: {{ object.quality_rating }}
+                <br>
+                Utilidad de la ayuda: {{ object.usefullness }}. NOTA: {{ object.usefullness_rating }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

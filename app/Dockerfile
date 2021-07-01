@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y netcat
 
 RUN mkdir staticfiles
 
+COPY requirements.txt /usr/src/app/
+RUN pip install -r requirements.txt
+
 
 RUN pip install pipenv 
 COPY ./Pipfile /usr/src/app/Pipfile

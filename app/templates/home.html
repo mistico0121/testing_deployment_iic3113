@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block  content %}
+
+<div class="home_background">
+  <div class="home_text-hold">
+    <p2>
+      Bienvenido al Asistente Virtual
+    </p2>
+    <br>
+    <p1>
+      Para iniciar una llamada, pulse el botón "Iniciar Video",<br>
+      un vendedor entrará en brevedad a la sesión
+    </p1>
+  </div>
+  <div class="flex_container">
+    <div class="button_container">
+      <p><a class="videobutton" href="/makevideocall" target = "_blank"> Iniciar Video </a></p>
+    </div>
+    <div class="button_container">
+      <p><a class="videobutton" href="/surveys/create"> Encuesta </a></p>
+    </div>
+  </div>  
+</div>
+
+{% endblock content %}

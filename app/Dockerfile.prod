@@ -10,6 +10,9 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir staticfiles
 
+COPY requirements.txt /usr/src/app/
+RUN pip install -r requirements.txt
+
 # install dependencies
 # we use --system flag because we don't need an extra virtualenv
 RUN apt-get update && apt-get install -y netcat gcc python3-dev musl-dev

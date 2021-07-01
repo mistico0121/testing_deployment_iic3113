@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block  content %}
+<link rel="stylesheet" type="text/css" href="{% static 'attendance_tablets/style.css' %}">
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Store</th>
+    </tr>
+    {% for tablet in object_list %}
+      <tr>
+        <td>{{ tablet.name }}</td>
+        <td>{{ tablet.store }}</td>
+        <td><a href='{{ tablet.get_absolute_url }}'>View</a></td>
+        <td><a href='{% url 'attendance_tablet-update' id=tablet.id %}'>Edit</a></td>
+        <td><a href='{% url 'attendance_tablet-delete' id=tablet.id %}'>Delete</a></td>
+      </tr>
+    {% endfor %}
+</table>
+
+<a href='{% url 'attendance_tablet-create' %}'>Create Attendance Tablet</a>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block  content %}
+<h1>Perfil</h1>
+<h3>Como estas {{salesman.user.username}}</h3>
+
+<form method="post">{% csrf_token %}
+    <label for="cusername">username:</label>
+    <input type="text" id="cusername" name="cusername" value="{{salesman.user.username}}"><br><br>
+    Si lo que quiere es cambiar su contrasenia presione <a href="{% url 'account_change_password' %}">aqui</a><br>
+    {{ form.as_p }}
+    <input type="submit" value="confirmar">
+</form>
+<p style="color:red">Si quieres borrar tu cuenta precione <a href="{% url 'delete-user' %}">aqui</a> </p> 
+{% endblock content %}
