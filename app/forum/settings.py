@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'asistentevirtual.urls'
+ROOT_URLCONF = 'forum.urls'
 
 TEMPLATES = [
     {
@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'asistentevirtual.wsgi.application'
+WSGI_APPLICATION = 'forum.wsgi.application'
 
 
 # Database
