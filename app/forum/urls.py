@@ -29,7 +29,7 @@ from django.urls import reverse_lazy
 
 from attendance_tablets.views import attendance_tablet_index_view, attendance_tablet_show_view, attendance_tablet_create_view, attendance_tablet_update_view, attendance_tablet_delete_view
 
-from videocalls.views import videocall_index_view, videocall_middleware, videocall_delete, surveys, survey_create
+from videocalls.views import videocall_index_view, videocall_middleware, videocall_delete, surveys, survey_create, ajax_get_view
 
 urlpatterns = [
     path('', home_view, name='home'),
@@ -62,6 +62,7 @@ urlpatterns = [
     path('stores/<int:pk>/delete/', Store_delete.as_view(), name='store-delete'),
     
     path('videocalls/', videocall_index_view, name='videocall-index'),
+    path('videocalls_ajax/', ajax_get_view, name='videocall-ajax'),
     path('makevideocall/', videocall_middleware, name='videocall-middleware'),
     path('surveys/', surveys, name='surveys'),
     path('surveys/create', survey_create, name='surveys-create'),
