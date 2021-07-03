@@ -10,7 +10,10 @@
     <h1>{{ store.name }}</h1>
     <p> {{ store.description }}</p>
   </div>
-  <h1>Puntos de Venta</h1>
+
+  <div class="line"></div>
+  
+  <h1 class="point">Puntos de Venta</h1>
 
   <div class="grid-stores">
   {% for obj in point_of_sales %}
@@ -23,5 +26,4 @@
   {% endfor %}
   </div>
 </div>
-
 {% endblock content %}

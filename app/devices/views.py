@@ -15,6 +15,8 @@ def device_index_view(request):
 @login_required
 def device_show_view(request, id=id):
     obj = get_object_or_404(Device, id=id)
+    obj.new_price = obj.price * (1 - obj.sale)
+    obj.sale = obj.sale * 100
     context = {
         'object': obj
     }

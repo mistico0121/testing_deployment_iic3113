@@ -11,31 +11,38 @@
     <p> {{ object.description }}</p>
   </div>
 
+  <div class="line"></div>
+  
   <div class="devices">
-    <h2>Dispositivos</h2>
+    <li class="table-header">
+      <div class="col col-3">Dispositivos</div>
+    </li>
 
     <table id="devices-table">
       <tr>
         <th>Nombre</th>
         <th>Marca</th>
         <th>Precio</th>
+        <th>Memoria</th>
+        <th>Memoria Interna</th>
       </tr>
       {% for device in devices %}
         <tr>
           <td>{{ device.name }}</td>
           <td>{{ device.brand }}</td>
           <td>${{ device.price }}</td>
-          <td><a href='{{ device.get_absolute_url }}'>Ver</a></td>
+          <td>{{ device.memory }} GB</td>
+          <td>{{ device.internal_memory }} GB</td>
+          <td><a class="button" href='{{ device.get_absolute_url }}'>Ver Dispositivo</a></td>
         </tr>
       {% endfor %}
     </table>
-
-    <a class="button" href='{% url 'device-create' %}'>Crear Dispositivo</a>
   </div>
 
   <div class="tablets">
-    <h2>Tabletas de Asistencia</h2>
-
+    <li class="table-header">
+      <div class="col col-3">Tabletas de Asistencia</div>
+    </li>
     <table id="devices-table">
     <tr>
       <th>Nombre</th>
@@ -48,12 +55,9 @@
             {% if tablet.online %}green{% endif %}
             {% if tablet.online == False%}red{% endif %}">
         </td>
-        <td><a href='{{ tablet.get_absolute_url }}'>Ver</a></td>
       </tr>
     {% endfor %}
     </table>
-
-    <a class="button" href='{% url 'attendance_tablet-create' %}'>Crear Tablet</a>
   </div>
 </div>
 

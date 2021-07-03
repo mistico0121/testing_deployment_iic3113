@@ -1,7 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block  content %}
-<p>{{ object.name }}</p>
-<p>{{ object.description }}</p>
-<p>{{ object.price }}</p>
+<link rel="stylesheet" type="text/css" href="{% static 'devices/style.css' %}">
+
+<div class="container">
+
+  <div class="general-info">
+    <p>{{ object.brand }}</p>
+    <h2>{{ object.name }}</h2>
+    {% if object.sale %}
+      <p class="strike">${{ object.price }}</p>
+      <p>${{ object.new_price }} {{ object.sale }}% de Descuento</p>
+    {% else %}
+      <p>${{ object.price }}</p>
+    {% endif %}
+  </div>
+
+  <ul class="table">
+    <li class="table-header">
+      <div class="col col-3">Caracteristicas</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1">Numero Modelo</div>
+      <div class="col col-2">{{ object.model_number }}</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1">Sistema Operativo</div>
+      <div class="col col-2">{{ object.os }}</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1">Color</div>
+      <div class="col col-2">{{ object.color }}</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1">Memoria</div>
+      <div class="col col-2">{{ object.memory }}</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1">Memoria Interna</div>
+      <div class="col col-2">{{ object.internal_memory }}</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1">Punto de Venta</div>
+      <div class="col col-2">{{ object.point_of_sale }}</div>
+    </li>
+  </ul>
+</div>
 {% endblock content %}

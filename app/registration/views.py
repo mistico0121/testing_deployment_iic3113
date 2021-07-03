@@ -10,6 +10,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 # Create your views here.
+
+@method_decorator(login_required, name='dispatch')
 class Salesman_list(ListView):
     model = Salesman
     def get_context_data(self, **kwargs):# con este metodo de la clase heredada se puede mandar un contexto normal con cualquier info
@@ -45,10 +47,10 @@ class SalesmanUpdate(UpdateView):
         salesman.save()
         
         return super().post(request, *args, **kwargs)
+        
 @method_decorator(login_required, name='dispatch')
 def delete_user(request):
     context = {}
-    print("veamos si vuelas mierdas")
     print(request.user.username)
     try:
         u = request.user

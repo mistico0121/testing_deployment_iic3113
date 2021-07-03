@@ -5,16 +5,20 @@
 <link rel="stylesheet" type="text/css" href="{% static 'stores/style.css' %}">
 
 <div class="container">
-  <h1>Tiendas</h1>
+  <div class="title">
+    <h1>Tiendas</h1>
+  </div>
+
+  <div class="line"></div>
 
   <div class="grid-stores">
-  {% for store in stores %}
+    {% for store in stores %}
       <div class="grid-item" onclick="location.href='{% url 'store-show' store.id %}'">
         <div class="store-info">
           <h4>{{ store.name }}</h4>
         </div>
       </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 </div>
 

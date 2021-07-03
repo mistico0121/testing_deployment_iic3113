@@ -30,6 +30,7 @@ def store_show_view(request, id=id):
 class Store_create(CreateView):
     model = Store
     fields = ['name','description']
+    widgets = {}
     def get_success_url(self):
         return reverse('store-index')
 @method_decorator(login_required, name='dispatch')

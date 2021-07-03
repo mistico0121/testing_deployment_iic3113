@@ -10,12 +10,11 @@
 </head>
 
 <body>
-  <ul>
+  <ul class="navbar">
 
     <li><a href='/'>Inicio</a></li>
     <li><a href='/stores'>Catalogo</a></li>
     <li><a href='/videocalls'>Videollamadas</a></li>
-    <li><a href="{% url 'salesman-index' %}">Vendedor</a></li>
     <li><a href="{% url 'surveys' %}">Encuestas</a></li>
     {% if not request.user.is_authenticated %}
       <li><a href='/accounts/login'>Iniciar Sesión</a></li>
@@ -30,6 +29,10 @@
   {% block content %}
 
   {% endblock content %}
-  
+
+  <div class="adminpanel">
+    <a href="/admin">Panel de Administrador</a>
+  </div>
+
 </body>
 </html>

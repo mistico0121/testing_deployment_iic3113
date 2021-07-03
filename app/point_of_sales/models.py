@@ -8,5 +8,5 @@ class PointOfSale(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.store.name + ' | ' + self.name
         
