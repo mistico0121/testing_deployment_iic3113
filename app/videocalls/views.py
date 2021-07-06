@@ -68,11 +68,19 @@ def surveys(request):
     for i in queryset:
         suma_calidad += i.quality_rating
         suma_utilidad += i.usefullness_rating
-    context = {
-        'object_list': queryset,
-        'mean_quality_rating': round(suma_calidad/len(queryset), 2),
-        'mean_usefullness_rating': round(suma_utilidad/len(queryset), 2)
-    }
+    if len(queryset) != 0:    
+        context = {
+            'object_list': queryset,
+            'mean_quality_rating': round(suma_calidad/len(queryset), 2),
+            'mean_usefullness_rating': round(suma_utilidad/len(queryset), 2)
+        }
+    else:
+        context = {
+            'object_list': queryset,
+            'mean_quality_rating': 0,
+            'mean_usefullness_rating': 0
+        }
+
     return render(request, "videocall/surveys.html", context)
 
 def survey_create(request):
