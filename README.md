@@ -1,6 +1,6 @@
 # iic2173-e0-mistico0121
 
-Está hecho en Django, Gunicorn, Postgres con motor web nginx como el proxy inverso
+Está hecho en Django, Gunicorn, Postgres con motor web nginx como el proxy inverso. Se abre en el puerto 8000
 
 ### Local
 
