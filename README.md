@@ -1,6 +1,6 @@
 # iic2173-e0-mistico0121
 
-Está hecho en Django, Gunicorn, Postgres con motor web nginx como el proxy inverso. Se abre en el puerto 8000
+Está hecho en Django, Gunicorn, Postgres con motor web nginx como el proxy inverso. Se abre en el puerto 8000. Con motivos de aprendizaje, tiene los archivos .env expuestos, PERO estos no deberían subirse a Github, si no que deberían ser introducidos en el .gitignore
 
 ### Local
 
